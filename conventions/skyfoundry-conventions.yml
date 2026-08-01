@@ -1,0 +1,74 @@
+generated: '2026-07-21'
+method: searched
+source: https://project-haystack.org/doc/docHaystack/HttpApi
+docs: https://project-haystack.org/doc/docHaystack/HttpApi
+notes: >-
+  Cross-cutting request/response semantics for the SkySpark REST API. SkySpark is a
+  native Project Haystack server, so its HTTP API follows the Haystack HTTP API
+  conventions. Endpoints follow the pattern /api/{proj}/{op} on each self-hosted
+  SkySpark instance.
+authentication:
+  style: haystack-scram-bearer
+  ref: authentication/skyfoundry-authentication.yml
+request_methods:
+  get: >-
+    Used for ops tagged noSideEffects that take no arguments or a single-row
+    request. As of SkySpark 3.0.20 the default is to disallow GET for
+    non-idempotent operations.
+  post: >-
+    Used for operations with side effects or multi-row requests; the request grid
+    is sent in the body using the negotiated content type.
+data_formats:
+  negotiation: HTTP content negotiation via Content-Type / Accept headers
+  formats:
+  - name: Zinc
+    media_type: text/zinc
+    default: true
+  - name: JSON
+    media_type: application/json
+    also: application/vnd.haystack+json
+  - name: Trio
+    media_type: text/trio
+  - name: CSV
+    media_type: text/csv
+  - name: Turtle/JSON-LD
+    note: RDF support
+  encoding: UTF-8
+operations:
+  model: >-
+    Each op is invoked as /api/{proj}/{opName}; request and response payloads are
+    Haystack grids serialized in the negotiated format.
+  core:
+  - {op: about, description: Server summary/version information}
+  - {op: read, description: Query the entity database with a filter}
+  - {op: nav, description: Navigate the site/equip/point hierarchy}
+  - {op: hisRead, description: Read historized time-series data for a point}
+  - {op: hisWrite, description: Write historized time-series data for a point}
+  - {op: pointWrite, description: Write to a writable point priority array}
+  - {op: watchSub, description: Create or add points to a real-time watch}
+  - {op: watchPoll, description: Poll a watch for changed records}
+  - {op: watchUnsub, description: Remove points from or close a watch}
+  - {op: eval, description: Evaluate an Axon expression (SkySpark extension)}
+  - {op: commit, description: Create/update/remove records in the folio database}
+  - {op: filetypes, description: Query supported MIME/file types}
+idempotency:
+  supported: true
+  mechanism: >-
+    Idempotency is enforced structurally rather than via an Idempotency-Key header:
+    read-style ops are tagged noSideEffects and safe to retry, while side-effecting
+    ops (hisWrite, pointWrite, commit) are POST-only. Since SkySpark 3.0.20 the
+    server disallows GET for non-idempotent operations, making the HTTP method a
+    reliable idempotency signal.
+watches:
+  style: server-side subscription (watchSub/watchPoll/watchUnsub)
+  description: >-
+    Real-time change delivery is via polled watches — clients subscribe to points,
+    then poll for changes — rather than server-pushed webhooks.
+error_envelope:
+  format: haystack-grid
+  description: >-
+    Errors are returned as a Haystack grid whose metadata carries an err marker and
+    a dis/errTrace describing the fault; HTTP status codes accompany the grid.
+cross_links:
+  authentication: authentication/skyfoundry-authentication.yml
+  domain_security: security/skyfoundry-domain-security.yml

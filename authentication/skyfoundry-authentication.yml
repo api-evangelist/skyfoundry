@@ -1,0 +1,54 @@
+generated: '2026-07-21'
+method: searched
+source: https://project-haystack.org/doc/docHaystack/Auth
+docs: https://project-haystack.org/doc/docHaystack/Auth
+notes: >-
+  SkySpark is a native Project Haystack server and implements the Haystack HTTP
+  API authentication protocol. Authentication is a three-step exchange: a HELLO
+  handshake (client sends an Authorization header with the HELLO scheme and a
+  base64url-encoded username), a mechanism exchange (the server advertises
+  supported mechanisms via WWW-Authenticate), and token-based access. On success
+  the server returns 200 with an Authentication-Info header carrying an authToken;
+  clients then present "Authorization: BEARER authToken=xxyyzz" on subsequent
+  requests. Each SkySpark deployment is self-hosted, so there is no central
+  authorization server or public token endpoint — auth happens against the
+  customer's own SkySpark host at /ui or the /api/{proj} base.
+summary:
+  types: [scram, http]
+  primary: SCRAM-SHA-256
+  token: bearer-authtoken
+schemes:
+- name: SCRAM
+  type: scram
+  mechanism: SCRAM-SHA-256
+  required: true
+  description: >-
+    Salted Challenge Response Authentication Mechanism (RFC 5802) with SHA-256
+    (SHA-512 negotiable). All compliant Haystack HTTP API implementations, including
+    SkySpark v3+, must support SCRAM. Client and server exchange base64url-encoded
+    messages; the client proves password possession via PBKDF2 without transmitting
+    the password.
+- name: PLAINTEXT
+  type: plaintext
+  required: false
+  description: >-
+    Transmits base64url-encoded credentials directly. MUST only be permitted over a
+    secure TLS connection.
+- name: BEARER
+  type: http
+  scheme: bearer
+  description: >-
+    After a successful handshake the authToken issued in the Authentication-Info
+    header is presented as "Authorization: BEARER authToken=...". SkySpark also
+    accepts BASIC and DIGEST schemes for legacy clients where enabled.
+- name: BASIC
+  type: http
+  scheme: basic
+  description: >-
+    HTTP Basic authentication, supported by SkySpark for legacy/simple clients over
+    TLS where the server permits it.
+- name: DIGEST
+  type: http
+  scheme: digest
+  description: >-
+    HTTP Digest authentication, supported by SkySpark as a legacy mechanism.

@@ -1,23 +1,101 @@
 aid: skyfoundry
 name: SkyFoundry
-description: SkyFoundry is a company surfaced as a portfolio company of battery-ventures and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  SkyFoundry, founded in 2009 and headquartered in Glen Allen, Virginia,
+  develops SkySpark, an analytics and informatics platform that connects,
+  stores, analyzes, and visualizes data from smart devices, automation and
+  control systems, meters, and sensors to "find what matters" in large equipment
+  and facility datasets. SkySpark automatically detects issues, patterns,
+  deviations, faults, and cost-reduction opportunities across intelligent
+  buildings, industrial, agriculture, energy, government, and healthcare
+  facilities, and has been applied to over 15,000 buildings spanning more than a
+  billion square feet. SkySpark is a native Project Haystack server: external
+  applications integrate through the Haystack HTTP REST API (ops such as read,
+  hisRead, hisWrite, pointWrite, watchSub/watchPoll, eval, commit, and nav) with
+  Zinc, JSON, Trio, and CSV data formats, and authenticate using the Haystack
+  SCRAM (SHA-256) handshake with bearer authTokens. The company sells through a
+  network of 140+ OEM, systems-integrator, and value-added-distributor channel
+  partners rather than a self-service public SaaS.
 url: https://raw.githubusercontent.com/api-evangelist/skyfoundry/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - battery-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: real-provider-enriched
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://skyfoundry.com/file/17/SkyFoundry-Logo.png
 tags:
 - Company
-apis: []
+- Building Analytics
+- IoT
+- Energy Management
+- Fault Detection
+- Smart Buildings
+- Project Haystack
+- Time Series
+- Analytics
+apis:
+- name: SkySpark REST API (Project Haystack)
+  description: >-
+    SkySpark is a native Project Haystack server. External applications integrate
+    through the Haystack HTTP REST API, exposing operations such as about, read,
+    hisRead, hisWrite, pointWrite, watchSub, watchPoll, watchUnsub, nav, eval, and
+    commit over Zinc, JSON, Trio, and CSV. Endpoints follow the pattern
+    /api/{proj}/{op} on each self-hosted SkySpark instance; authentication uses the
+    Haystack SCRAM (SHA-256) handshake, after which a bearer authToken is presented
+    via the Authorization header. There is no single public multi-tenant host —
+    each customer runs its own SkySpark server.
+  humanURL: https://skyfoundry.com/product
+  properties:
+  - type: APIReference
+    url: https://project-haystack.org/doc/docHaystack/HttpApi
+  - type: Authentication
+    url: authentication/skyfoundry-authentication.yml
+  - type: Conventions
+    url: conventions/skyfoundry-conventions.yml
+common:
+- type: Website
+  url: https://skyfoundry.com
+- type: Documentation
+  url: https://skyfoundry.com/product
+- type: APIReference
+  url: https://project-haystack.org/doc/docHaystack/HttpApi
+- type: Blog
+  url: https://skyfoundry.com/blog
+- type: PrivacyPolicy
+  url: https://skyfoundry.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/skyfoundry
+- type: Authentication
+  url: authentication/skyfoundry-authentication.yml
+- type: Conventions
+  url: conventions/skyfoundry-conventions.yml
+- type: DomainSecurity
+  url: security/skyfoundry-domain-security.yml
+- type: WellKnown
+  url: well-known/skyfoundry-well-known.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 4
+  pass: local-v1

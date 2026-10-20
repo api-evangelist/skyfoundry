@@ -52,7 +52,8 @@ operations:
   - {op: commit, description: Create/update/remove records in the folio database}
   - {op: filetypes, description: Query supported MIME/file types}
 idempotency:
-  supported: true
+  coverage: none
+  supported: false
   mechanism: >-
     Idempotency is enforced structurally rather than via an Idempotency-Key header:
     read-style ops are tagged noSideEffects and safe to retry, while side-effecting

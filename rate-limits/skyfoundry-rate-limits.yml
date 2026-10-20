@@ -1,0 +1,7 @@
+name: SkyFoundry rate limits
+generated: '2026-10-20'
+method: none
+source: https://project-haystack.org/doc/docHaystack/HttpApi
+limit_count: 0
+limits: []
+note: No rate limits are published; SkySpark is self-hosted per customer and the SkyFoundry product docs (https://skyfoundry.com/doc) sit behind a customer login.

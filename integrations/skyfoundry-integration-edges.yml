@@ -1,3 +1,23 @@
+generated: '2026-10-20'
+method: searched
+source:
+- https://www.bacnetinternational.net/btl/
+- https://www.knx.org/community/manufacturers
+- https://zapier.com/apps/skyfoundry/integrations
+- https://n8n.io/integrations/skyfoundry/
+- https://composio.dev/toolkits/skyfoundry
+- https://monid.ai/tools/skyfoundry
+checked:
+- https://brickschema.org/consortium/
+- https://marketing.project-haystack.org/about-us
+- https://www.bacnetinternational.net/btl/
+- https://www.knx.org/community/manufacturers
+- https://composio.dev/toolkits/skyfoundry
+- https://monid.ai/tools/skyfoundry
+- https://n8n.io/integrations/skyfoundry/
+- https://zapier.com/apps/skyfoundry/integrations
+summary: null
+marketplace_apps: []
 edges:
 - partner_name: Project Haystack (members)
   partner: null
@@ -19,16 +39,7 @@ edges:
     matched_by: domain
     signal_note: 'participation only: membership level is context'
     detected_by: sweep-building-automation.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-building-automation.py
   first_seen: '2026-10-15'
-generated: '2026-10-15'
-method: searched
-source:
-- https://www.bacnetinternational.net/btl/
-- https://www.knx.org/community/manufacturers
-checked:
-- https://brickschema.org/consortium/
-- https://marketing.project-haystack.org/about-us
-- https://www.bacnetinternational.net/btl/
-- https://www.knx.org/community/manufacturers
+templates: []

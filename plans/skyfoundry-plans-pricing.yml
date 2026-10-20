@@ -1,0 +1,12 @@
+name: SkyFoundry pricing
+generated: '2026-10-20'
+method: searched
+source: https://skyfoundry.com/buy
+audience: business-product
+pricing_basis: negotiated
+published: false
+delivery:
+  delivery: unclear
+plan_count: 0
+plans: []
+note: The Buy page publishes no prices; it states "SkySpark is available through a worldwide network of industry leading VAR, VAD, and OEM reseller partners." and directs buyers to Contact Us / Request a Demo.

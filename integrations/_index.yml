@@ -23,6 +23,6 @@
     matched_by: domain
     signal_note: 'participation only: membership level is context'
     detected_by: sweep-building-automation.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null

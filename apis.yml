@@ -1,28 +1,29 @@
 aid: skyfoundry
+
 name: SkyFoundry
-description: >-
-  SkyFoundry, founded in 2009 and headquartered in Glen Allen, Virginia,
-  develops SkySpark, an analytics and informatics platform that connects,
-  stores, analyzes, and visualizes data from smart devices, automation and
-  control systems, meters, and sensors to "find what matters" in large equipment
-  and facility datasets. SkySpark automatically detects issues, patterns,
-  deviations, faults, and cost-reduction opportunities across intelligent
-  buildings, industrial, agriculture, energy, government, and healthcare
-  facilities, and has been applied to over 15,000 buildings spanning more than a
-  billion square feet. SkySpark is a native Project Haystack server: external
-  applications integrate through the Haystack HTTP REST API (ops such as read,
-  hisRead, hisWrite, pointWrite, watchSub/watchPoll, eval, commit, and nav) with
-  Zinc, JSON, Trio, and CSV data formats, and authenticate using the Haystack
-  SCRAM (SHA-256) handshake with bearer authTokens. The company sells through a
-  network of 140+ OEM, systems-integrator, and value-added-distributor channel
-  partners rather than a self-service public SaaS.
+
+description: 'SkyFoundry, founded in 2009 and headquartered in Glen Allen, Virginia, develops SkySpark, an analytics and informatics platform
+  that connects, stores, analyzes, and visualizes data from smart devices, automation and control systems, meters, and sensors to "find what matters"
+  in large equipment and facility datasets. SkySpark automatically detects issues, patterns, deviations, faults, and cost-reduction opportunities
+  across intelligent buildings, industrial, agriculture, energy, government, and healthcare facilities, and has been applied to over 15,000 buildings
+  spanning more than a billion square feet. SkySpark is a native Project Haystack server: external applications integrate through the Haystack
+  HTTP REST API (ops such as read, hisRead, hisWrite, pointWrite, watchSub/watchPoll, eval, commit, and nav) with Zinc, JSON, Trio, and CSV data
+  formats, and authenticate using the Haystack SCRAM (SHA-256) handshake with bearer authTokens. The company sells through a network of 140+ OEM,
+  systems-integrator, and value-added-distributor channel partners rather than a self-service public SaaS.'
+
 url: https://raw.githubusercontent.com/api-evangelist/skyfoundry/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: vc-portfolio
+
 x-backed-by:
 - battery-ventures
+
 x-tier: profiled
+
 x-tier-reason: real-provider-enriched
+
 deliveryModel:
   model: unknown
   open_source: false
@@ -34,6 +35,7 @@ deliveryModel:
   - none
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -47,10 +49,15 @@ accessModel:
   - security
   generated: '2026-09-03'
   method: derived
+
 specificationVersion: '0.23'
+
 created: '2026-07-17'
+
 modified: '2026-07-21'
+
 image: https://skyfoundry.com/file/17/SkyFoundry-Logo.png
+
 tags:
 - Company
 - Building Analytics
@@ -61,26 +68,22 @@ tags:
 - Project Haystack
 - Time Series
 - Analytics
-apis:
-- name: SkySpark REST API (Project Haystack)
-  description: >-
-    SkySpark is a native Project Haystack server. External applications integrate
-    through the Haystack HTTP REST API, exposing operations such as about, read,
-    hisRead, hisWrite, pointWrite, watchSub, watchPoll, watchUnsub, nav, eval, and
-    commit over Zinc, JSON, Trio, and CSV. Endpoints follow the pattern
-    /api/{proj}/{op} on each self-hosted SkySpark instance; authentication uses the
-    Haystack SCRAM (SHA-256) handshake, after which a bearer authToken is presented
-    via the Authorization header. There is no single public multi-tenant host —
-    each customer runs its own SkySpark server.
-  humanURL: https://skyfoundry.com/product
-  properties:
-  - type: APIReference
-    url: https://project-haystack.org/doc/docHaystack/HttpApi
-  - type: Authentication
-    url: authentication/skyfoundry-authentication.yml
-  - type: Conventions
-    url: conventions/skyfoundry-conventions.yml
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+- FN: APIs.json
+  email: info@apis.io
+
 common:
+- type: Idempotency
+  url: conventions/skyfoundry-conventions.yml
+- type: Hosts
+  url: hosts/skyfoundry-hosts.yml
+- type: IntegrationEdges
+  url: integrations/skyfoundry-integration-edges.yml
+- type: Vendors
+  url: vendors/skyfoundry-vendors.yml
 - type: Website
   url: https://skyfoundry.com
 - type: Documentation
@@ -89,6 +92,12 @@ common:
   url: https://project-haystack.org/doc/docHaystack/HttpApi
 - type: Blog
   url: https://skyfoundry.com/blog
+- type: Login
+  url: https://skyfoundry.com/user/login
+- type: Pricing
+  url: https://skyfoundry.com/buy
+- type: Support
+  url: https://skyfoundry.com/contact
 - type: PrivacyPolicy
   url: https://skyfoundry.com/privacy
 - type: GitHubOrganization
@@ -101,13 +110,35 @@ common:
   url: security/skyfoundry-domain-security.yml
 - type: WellKnown
   url: well-known/skyfoundry-well-known.yml
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-- FN: APIs.json
-  email: info@apis.io
+
+apis:
+- name: SkySpark REST API (Project Haystack)
+  description: SkySpark is a native Project Haystack server. External applications integrate through the Haystack HTTP REST API, exposing operations
+    such as about, read, hisRead, hisWrite, pointWrite, watchSub, watchPoll, watchUnsub, nav, eval, and commit over Zinc, JSON, Trio, and CSV.
+    Endpoints follow the pattern /api/{proj}/{op} on each self-hosted SkySpark instance; authentication uses the Haystack SCRAM (SHA-256) handshake,
+    after which a bearer authToken is presented via the Authorization header. There is no single public multi-tenant host — each customer runs
+    its own SkySpark server.
+  humanURL: https://skyfoundry.com/product
+  properties:
+  - type: APIReference
+    url: https://project-haystack.org/doc/docHaystack/HttpApi
+  - type: Authentication
+    url: authentication/skyfoundry-authentication.yml
+  - type: Conventions
+    url: conventions/skyfoundry-conventions.yml
+  aid: skyfoundry:skyspark-rest-api-project-haystack
 x-enrichment:
-  date: '2026-07-21'
-  status: enriched
-  artifacts_added: 4
-  pass: local-v1
+  date: '2026-10-20'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v5
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: SkySpark is self-hosted per customer with no public API host, and SkyFoundry's own product documentation at skyfoundry.com/doc (and its forum) redirects to a customer login page; only the generic Project Haystack HTTP API spec is public.
+  evidence:
+  - url: https://skyfoundry.com/doc
+    status: 200
+  - url: https://skyfoundry.com/buy
+    status: 200
+  checked: '2026-10-20'
